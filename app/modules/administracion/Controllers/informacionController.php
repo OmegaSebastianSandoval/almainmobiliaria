@@ -187,7 +187,7 @@ class Administracion_informacionController extends Administracion_mainController
 		$data['info_pagina_telefono'] = $this->_getSanitizedParam("info_pagina_telefono");
 		$data['info_pagina_whatsapp'] = $this->_getSanitizedParam("info_pagina_whatsapp");
 		$data['info_pagina_correos_contacto'] = $this->_getSanitizedParam("info_pagina_correos_contacto");
-		$data['info_pagina_direccion_contacto'] = $this->_getSanitizedParam("info_pagina_direccion_contacto");
+		$data['info_pagina_direccion_contacto'] = $this->_getSanitizedParamHtml("info_pagina_direccion_contacto");
 		$data['info_pagina_informacion_contacto'] = $this->_getSanitizedParamHtml("info_pagina_informacion_contacto");
 		$data['info_pagina_informacion_contacto_footer'] = $this->_getSanitizedParamHtml("info_pagina_informacion_contacto_footer");
 		$data['info_pagina_latitud'] = $this->_getSanitizedParam("info_pagina_latitud");

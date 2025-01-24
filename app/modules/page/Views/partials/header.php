@@ -22,7 +22,7 @@
         <div class="row justify-content-between h-100">
             <div class="col-md-2 d-flex align-items-center ">
                 <a href="/">
-                    <img src="/skins/page/images/Corte/" class="logo">
+                    <img src="/skins/page/images/Corte/LogoHeader.png" class="logo">
                 </a>
             </div>
             <div class="col-md-6 d-flex align-items-center justify-content-center">

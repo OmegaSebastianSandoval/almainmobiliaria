@@ -118,17 +118,7 @@ $(document).ready(function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  var map = L.map("map").setView([4.60971, -74.08175], 13); // Coordenadas de Bogotá
 
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  }).addTo(map);
-
-  var marker = L.marker([4.60971, -74.08175])
-    .addTo(map)
-    .bindPopup("Bogotá, Colombia")
-    .openPopup();
 
   function handleFormSubmit(formId, submitBtnId) {
     document.getElementById(formId)?.addEventListener("submit", function (e) {
