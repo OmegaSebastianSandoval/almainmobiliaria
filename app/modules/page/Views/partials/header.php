@@ -20,12 +20,12 @@
 <section class="bg-white header-bottom align-self-center">
     <div class="container h-100">
         <div class="row justify-content-between h-100">
-            <div class="col-md-2 d-flex align-items-center ">
+            <div class="col-6 col-md-2 d-flex align-items-center ">
                 <a href="/">
                     <img src="/skins/page/images/Corte/LogoHeader.png" class="logo">
                 </a>
             </div>
-            <div class="col-md-6 d-flex align-items-center justify-content-center">
+            <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center">
                 <div class="row h-100">
                     <div class="col-lg-12 col-md-12 d-none d-lg-block">
 
@@ -57,7 +57,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 d-flex align-items-center  gap-3 h-100 justify-content-end">
+            <div class=" d-none col-md-4 d-md-flex align-items-center  gap-3 h-100 justify-content-end">
                 <div class="d-flex align-items-center justify-content-end gap-3 h-100">
 
                     <div class="search">
@@ -119,6 +119,15 @@
                     </a>
                 <?php } ?>
             </div>
+            <div class="d-block d-md-none col-6 d-flex align-items-center justify-content-end">
+
+                <!--<div class="col-4 d-block d-lg-none d-none justify-content-end align-items-center">-->
+                <div class=" main">
+                    <a class="btn-menu d-block d-lg-none fa-1x"><i class="fas fa-bars fa-2x" style="color:#005681"></i></a>
+                </div>
+            </div>
+
+
         </div>
 
 
@@ -129,49 +138,49 @@
 <div class="botonera-resposive">
     <div class=" col-12 col-md-8">
         <div class="col-md-4">
-            <a class="btn-menu"><i class="fas fa-times-circle icon-naranja"></i></a>
+            <a class="btn-menu"><i class="fas fa-times-circle icon-blue"></i></a>
         </div>
     </div>
     <table class="table table-striped">
         <tbody>
             <tr>
                 <td>
-                    <li class="item"><a href="/" rel="noopener noreferrer"><i class="fas fa-home me-2"></i>HOME</a></li>
+                    <li class="item"><a href="/" rel="noopener noreferrer"><i class="fas fa-home "></i>HOME</a></li>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <li class="item"><a href="/page/inventario"><i class="fa-solid fa-building  me-2"></i><span>INVENTARIO DE INMUEBLES</span></a>
+                    <li class="item"><a href="/page/inventario"><i class="fa-solid fa-building  "></i><span>INVENTARIO DE INMUEBLES</span></a>
                     </li>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <li class="item"><a href="/page/conozcanos"><i class="fa-solid fa-people-roof me-2"></i><span>CON&Oacute;ZCANOS</span></a>
+                    <li class="item"><a href="/page/conozcanos"><i class="fa-solid fa-people-roof "></i><span>CON&Oacute;ZCANOS</span></a>
                     </li>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <li class="item"><a href="/page/servicios"><i class="fas fa-shield-alt me-2"></i><span>SERVICIOS</span></a>
+                    <li class="item"><a href="/page/servicios"><i class="fas fa-shield-alt "></i><span>SERVICIOS</span></a>
                     </li>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <li class="item"><a href="/page/procesos"><i class="fa-solid fa-chalkboard-user me-2"></i><span>PROCESOS</span></a>
+                    <li class="item"><a href="/page/procesos"><i class="fa-solid fa-chalkboard-user "></i><span>PROCESOS</span></a>
                     </li>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <li class="item"><a href="/page/contacto"><i class="fa-solid fa-address-book me-2"></i><span>CONTACTO</span></a>
+                    <li class="item"><a href="/page/contacto"><i class="fa-solid fa-address-book "></i><span>CONTACTO</span></a>
                     </li>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <li class="item"><a href="/page/archivos"><i class="fa-solid fa-file  me-2"></i><span>ARCHIVOS DESCARGABLES</span></a>
+                    <li class="item"><a href="/page/archivos"><i class="fa-solid fa-file  "></i><span>ARCHIVOS DESCARGABLES</span></a>
                     </li>
                 </td>
             </tr>
@@ -181,7 +190,7 @@
                     <td>
                         <li class="item">
                             <a href="/page/pagos" rel="noopener noreferrer" data-bs-toggle="collapse" data-bs-target="#sub-menu">
-                                <i class="fa-regular fa-money-bill-1 me-2"></i>
+                                <i class="fa-regular fa-money-bill-1 "></i>
                                 <span>PAGOS</span>
                             </a>
                             <ul class="collapse" id="sub-menu">

@@ -292,6 +292,12 @@ class Administracion_publicidadController extends Administracion_mainController
     }
     $data['publicidad_texto_enlace'] = $this->_getSanitizedParam("publicidad_texto_enlace");
     $data['publicidad_enlace_alineacion'] = $this->_getSanitizedParam("publicidad_enlace_alineacion");
+
+    if ($this->_getSanitizedParam("mostrarinfo") == '') {
+      $data['mostrarinfo'] = '0';
+    } else {
+      $data['mostrarinfo'] = $this->_getSanitizedParam("mostrarinfo");
+    }
     return $data;
   }
 

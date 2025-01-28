@@ -1,64 +1,152 @@
+document.addEventListener("DOMContentLoaded", function () {
+  var forms = document.querySelectorAll("form");
+
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    form.addEventListener(
+      "submit",
+      function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add("was-validated");
+      },
+      false
+    );
+  });
+});
+
+$(document).ready(function () {
+  $(".menu-toggler").on("click", function () {
+    $("#panel-botones").toggle(300);
+    $(".nav-brand").toggle(300);
+  });
+});
+
 $(document).ready(function () {
   tinymce.init({
-    selector: 'textarea.tinyeditor',  // change this value according to your HTML
+    selector: "textarea.tinyeditor", // change this value according to your HTML
     plugins: [
-      'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-      'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-      'insertdatetime', 'media', 'table', 'help', 'wordcount', 'code', 'file-manager'
+      "advlist",
+      "autolink",
+      "lists",
+      "link",
+      "image",
+      "charmap",
+      "preview",
+      "anchor",
+      "searchreplace",
+      "visualblocks",
+      "code",
+      "fullscreen",
+      "insertdatetime",
+      "media",
+      "table",
+      "help",
+      "wordcount",
+      "code",
+      "file-manager",
     ],
-    toolbar: 'undo redo | blocks | ' +
-      'bold italic backcolor | alignleft aligncenter ' +
-      'alignright alignjustify | bullist numlist outdent indent | ' +
-      'removeformat | Upload Flmngr ImgPen | code | help ',
+    toolbar:
+      "undo redo | blocks | " +
+      "bold italic backcolor | alignleft aligncenter " +
+      "alignright alignjustify | bullist numlist outdent indent | " +
+      "removeformat | Upload Flmngr ImgPen | code | help | temaClaro temaOscuro ",
     Flmngr: {
-      urlFileManager: '/components/flmngr/flmngr.php',
-      urlFiles: '/upload',
-      acceptextensions: ["zip", "psd", "html", "doc", "xml", "pdf", "js", "txt"]
+      urlFileManager: "/components/flmngr/flmngr.php",
+      urlFiles: "/upload",
+      acceptextensions: [
+        "zip",
+        "psd",
+        "html",
+        "doc",
+        "xml",
+        "pdf",
+        "js",
+        "txt",
+      ],
     },
+    font_size_formats:
+      "1px 2px 3px 4px 5px 6px 7px 8px 9px 10px 11px 12px 13px 14px 15px 16px 17px 18px 19px 20px 21px 22px 23px 24px 25px 26px 27px 28px 29px 30px 31px 32px 33px 34px 35px 36px 37px 38px 39px 40px 41px 42px 43px 44px 45px 46px 47px 48px 49px 50px 51px 52px 53px 54px 55px 56px 57px 58px 59px 60px 61px 62px 63px 64px 65px 66px 67px 68px 69px 70px 71px 72px 73px 74px 75px 76px 77px 78px 79px 80px 81px 82px 83px 84px 85px 86px 87px 88px 89px 90px 91px 92px 93px 94px 95px 96px 97px 98px 99px 100px",
+
     image_advtab: true,
     a_plugin_option: true,
-    language: 'es',
+    language: "es",
     a_configuration_option: 400,
     browser_spellcheck: true,
     contextmenu: false,
-    skin: 'oxide-dark',
-    content_css: 'tinymce-5',
-  });
-  $('.deletePolDoc').on('click', function () {
-    let id = $(this).attr('data-id');
-    $.ajax({
-      url: '/administracion/politicas/deletedocument',
-      method: 'POST',
-      data: {
-        id: id
-      },
-      dataType: 'json',
-      success: function (data) {
-        if (data == 'ok') {
-          $('#doc_' + id).remove();
+    skin: "oxide-dark",
+
+    setup: function (editor) {
+      // Función para cambiar el tema
+      function cambiarTema(cssPath) {
+        const doc = editor.iframeElement.contentDocument || editor.getDoc();
+        let linkElement = doc.getElementById("dynamic-theme");
+
+        // Si ya existe un link, reemplázalo; si no, crea uno nuevo
+        if (!linkElement) {
+          linkElement = doc.createElement("link");
+          linkElement.id = "dynamic-theme";
+          linkElement.rel = "stylesheet";
+          doc.head.appendChild(linkElement);
         }
+        linkElement.href = cssPath;
       }
-    })
-  })
+
+      // Botón para Tema Claro
+      editor.ui.registry.addButton("temaClaro", {
+        text: "Tema Claro",
+        onAction: function () {
+          cambiarTema("/skins/page/css/estilos.css");
+        },
+      });
+
+      // Botón para Tema Oscuro
+      editor.ui.registry.addButton("temaOscuro", {
+        text: "Tema Oscuro",
+        onAction: function () {
+          cambiarTema("/skins/page/css/estilosdark.css");
+        },
+      });
+    },
+    content_css: "/skins/page/css/estilos.css", // Tema predeterminado
+    content_style: "body { transition: background-color 0.3s, color 0.3s; }", // Transición suave
+  });
+  $(".deletePolDoc").on("click", function () {
+    let id = $(this).attr("data-id");
+    $.ajax({
+      url: "/administracion/politicas/deletedocument",
+      method: "POST",
+      data: {
+        id: id,
+      },
+      dataType: "json",
+      success: function (data) {
+        if (data == "ok") {
+          $("#doc_" + id).remove();
+        }
+      },
+    });
+  });
   $(function () {
-    $('#fecha_tipo_bloqueo').on('change', function () {
-      let _val = $(this).val()
-      if (_val == '1') {
-        $('#fecha_ciudad').show(300)
-        $('#fecha_empleado').val('')
-        $('#fecha_empleado').hide(300)
-      } else if (_val == '2') {
-        $('#fecha_empleado').show(300)
-        $('#fecha_ciudad').val('')
-        $('#fecha_ciudad').hide(300)
-      } else if (_val == '3') {
-        $('#fecha_empleado').val('')
-        $('#fecha_empleado').hide(300)
-        $('#fecha_ciudad').val('')
-        $('#fecha_ciudad').hide(300)
+    $("#fecha_tipo_bloqueo").on("change", function () {
+      let _val = $(this).val();
+      if (_val == "1") {
+        $("#fecha_ciudad").show(300);
+        $("#fecha_empleado").val("");
+        $("#fecha_empleado").hide(300);
+      } else if (_val == "2") {
+        $("#fecha_empleado").show(300);
+        $("#fecha_ciudad").val("");
+        $("#fecha_ciudad").hide(300);
+      } else if (_val == "3") {
+        $("#fecha_empleado").val("");
+        $("#fecha_empleado").hide(300);
+        $("#fecha_ciudad").val("");
+        $("#fecha_ciudad").hide(300);
       }
-    })
-  })
+    });
+  });
   // tinyMCE.init({
   //   mode: "specific_textareas",
   //   editor_selector: "tinyeditor",
@@ -136,10 +224,10 @@ $(document).ready(function () {
     browseClass: "btn  btn-verde",
     showUpload: false,
     showRemove: false,
-    browseIcon: "<i class=\"fas fa-image\"></i> ",
+    browseIcon: '<i class="fas fa-image"></i> ',
     browseLabel: "Imagen",
     language: "es",
-    dropZoneEnabled: false
+    dropZoneEnabled: false,
   });
 
   $(".file-document").fileinput({
@@ -150,9 +238,9 @@ $(document).ready(function () {
     allowedFileExtensions: ["pdf", "xlsx", "xls", "doc", "docx", "ico"],
     showUpload: false,
     showRemove: false,
-    browseIcon: "<i class=\"fas fa-folder-open\"></i> ",
+    browseIcon: '<i class="fas fa-folder-open"></i> ',
     language: "es",
-    dropZoneEnabled: false
+    dropZoneEnabled: false,
   });
 
   $(".file-robot").fileinput({
@@ -163,10 +251,10 @@ $(document).ready(function () {
     showUpload: false,
     showRemove: false,
     browseLabel: "Robot",
-    browseIcon: "<i class=\"fas fa-robot\"></i> ",
+    browseIcon: '<i class="fas fa-robot"></i> ',
     language: "es",
     dropZoneEnabled: false,
-    showPreview: false
+    showPreview: false,
   });
 
   $(".file-sitemap").fileinput({
@@ -177,10 +265,10 @@ $(document).ready(function () {
     showUpload: false,
     showRemove: false,
     browseLabel: "SiteMap",
-    browseIcon: "<i class=\"fas fa-sitemap\"></i> ",
+    browseIcon: '<i class="fas fa-sitemap"></i> ',
     language: "es",
     dropZoneEnabled: false,
-    showPreview: false
+    showPreview: false,
   });
   $('[ data-bs-toggle="tooltip"]').tooltip();
   $(".up_table,.down_table").click(function () {
@@ -207,22 +295,25 @@ $(document).ready(function () {
     var csrf = $("#csrf").val();
     if (route != "") {
       $.post(route, {
-        'csrf': csrf,
-        'id1': content1,
-        'id2': content2
+        csrf: csrf,
+        id1: content1,
+        id2: content2,
       });
     }
   });
 
-
   $(".selectpagination").change(function () {
     var route = $("#page-route").val();
     var pages = $(this).val();
-    $.post(route, {
-      'pages': pages
-    }, function () {
-      location.reload();
-    });
+    $.post(
+      route,
+      {
+        pages: pages,
+      },
+      function () {
+        location.reload();
+      }
+    );
   });
 
   $(".changetheme").on("change", function () {
@@ -234,23 +325,19 @@ $(document).ready(function () {
     }
     var editor = window.tinyMCE.get(contenedor);
     editor.getWin().document.body.style.backgroundColor = color;
-
   });
   $(".switch-form").bootstrapSwitch({
-    "onText": "Si",
-    "offText": "No"
+    onText: "Si",
+    offText: "No",
   });
-  let text = document.getElementById('contenido_tipo').value;
+  let text = document.getElementById("contenido_tipo").value;
 
   function aparecercolumna() {
-    let id_columna = document.getElementById('contenido_tipo').value;
-    if (id_columna == '5' || id_columna == '6') {
-      $(".no-colum").attr("style", "display:block!important")
-
+    let id_columna = document.getElementById("contenido_tipo").value;
+    if (id_columna == "5" || id_columna == "6") {
+      $(".no-colum").attr("style", "display:block!important");
     } else {
-
-      $(".no-colum").attr("style", "display:none!important")
-
+      $(".no-colum").attr("style", "display:none!important");
     }
   }
   $("#contenido_tipo").on("change", function () {
@@ -294,36 +381,37 @@ $(document).ready(function () {
       $(".si-acordion").show();
     }
   });
-  $(".colorpicker").colorpicker({
-    onChange: function (e) {
+  $(".colorpicker")
+    .colorpicker({
+      onChange: function (e) {
+        console.log("entro");
+      },
+    })
+    .on("colorpickerChange colorpickerCreate", function (e) {
       console.log("entro");
-    }
-  }).on('colorpickerChange colorpickerCreate', function (e) {
-    console.log("entro");
-    // console.log( e.colorpicker.picker.parents('.input-group'));
-    //e.colorpicker.picker.parents('.input-group').find('input').css('background-color', e.value);
-  }).on('create', function (e) {
-    var val = $(this).val();
-    $(this).css({
-      backgroundColor: $(this).val()
+      // console.log( e.colorpicker.picker.parents('.input-group'));
+      //e.colorpicker.picker.parents('.input-group').find('input').css('background-color', e.value);
+    })
+    .on("create", function (e) {
+      var val = $(this).val();
+      $(this).css({
+        backgroundColor: $(this).val(),
+      });
+    })
+    .on("change", function (e) {
+      var val = $(this).val();
+      $(this).css({
+        backgroundColor: $(this).val(),
+      });
     });
-  }).on('change', function (e) {
-    var val = $(this).val();
-    $(this).css({
-      backgroundColor: $(this).val()
-    });
-  });
 });
 
 function aparecercolumna() {
-  let id_columna = document.getElementById('contenido_tipo').value;
-  if (id_columna == '5' || id_columna == '6') {
-    $(".no-colum").attr("style", "display:block!important")
-
+  let id_columna = document.getElementById("contenido_tipo").value;
+  if (id_columna == "5" || id_columna == "6") {
+    $(".no-colum").attr("style", "display:block!important");
   } else {
-
-    $(".no-colum").attr("style", "display:none!important")
-
+    $(".no-colum").attr("style", "display:none!important");
   }
 }
 aparecercolumna();
@@ -333,17 +421,20 @@ function eliminarImagen(campo, ruta) {
   var csrf_section = $("#csrf_section").val();
   var id = $("#id").val();
   if (confirm("¿Esta seguro de borrar esta imagen?") == true) {
-    $.post(ruta, {
-      "id": id,
-      "csrf": csrf,
-      "csrf_section": csrf_section,
-      "campo": campo
-    }, function (data) {
-      if (parseInt(data.elimino) == 1) {
-        $("#imagen_" + campo).hide();
+    $.post(
+      ruta,
+      {
+        id: id,
+        csrf: csrf,
+        csrf_section: csrf_section,
+        campo: campo,
+      },
+      function (data) {
+        if (parseInt(data.elimino) == 1) {
+          $("#imagen_" + campo).hide();
+        }
       }
-    });
-
+    );
   }
   return false;
 }
@@ -353,17 +444,20 @@ function eliminararchivo(campo, ruta) {
   var csrf_section = $("#csrf_section").val();
   var id = $("#id").val();
   if (confirm("¿Esta seguro de borrar este Archivo?") == true) {
-    $.post(ruta, {
-      "id": id,
-      "csrf": csrf,
-      "csrf_section": csrf_section,
-      "campo": campo
-    }, function (data) {
-      if (parseInt(data.elimino) == 1) {
-        $("#archivo_" + campo).hide();
+    $.post(
+      ruta,
+      {
+        id: id,
+        csrf: csrf,
+        csrf_section: csrf_section,
+        campo: campo,
+      },
+      function (data) {
+        if (parseInt(data.elimino) == 1) {
+          $("#archivo_" + campo).hide();
+        }
       }
-    });
-
+    );
   }
   return false;
 }

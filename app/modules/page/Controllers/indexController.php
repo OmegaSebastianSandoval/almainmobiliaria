@@ -37,7 +37,7 @@ class Page_indexController extends Page_mainController
 
 		$this->_view->preguntas = $contenidoModel->getList("contenido_seccion = '8' AND contenido_tipo = '9' AND contenido_estado='1'", "orden ASC");
 
-		$inmuebles = $inmuebleModel->getList("ocultar = '0' AND inmueble_importante='1'", "id DESC LIMIT 8");
+		$inmuebles = $inmuebleModel->getList("ocultar = '0' AND inmueble_importante='1'", "id DESC LIMIT 4");
 		foreach ($inmuebles as $inmueble) {
 			$inmueble->imagen = $fotosModel->getList("inmueble='$inmueble->id'", "")[0]->foto;
 		

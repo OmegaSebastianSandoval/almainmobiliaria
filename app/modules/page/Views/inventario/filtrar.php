@@ -81,7 +81,7 @@
                     </div>
                     <input class="form-check-input" type="checkbox" value="1" name="arriendo" id="arriendo" <?php echo $this->arriendo === "1" ? 'checked' : '' ?>>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3 mb-4 d-flex align-items-center  justify-content-between ">
+                <div class="col-6 col-md-4 col-lg-3 mb-4 d-flex align-items-center  justify-content-between gap-2 ">
                     <button class=" m-0 btn-home" type="submit">BUSCAR</button>
                     <a href="/page/inventario/filtrar" class=" m-0 btn-home btn-limpiar" type="submit">LIMPIAR</a>
 
@@ -271,7 +271,7 @@
 
 
             <?php if ($this->register_number >= 1) { ?>
-                <div class="d-flex bg-grisclaro align-items-center  flex-column flex-md-row  justify-content-between p-2">
+                <div class="d-flex bg-grisclaro align-items-center  flex-column flex-md-row  justify-content-between gap-3 p-2">
                     <h4 class="m-0">Se encontraron <?php echo $this->register_number ?> inmuebles que coinciden con la búsqueda</h4>
                     <div class="filtros-orden">
 
@@ -438,9 +438,10 @@
 
 <style>
     .section-filtros {
-        background-color: var(--morado-dos);
+        background-color: var(--gris-medio);
         padding: 20px 0;
     }
+
 </style>
 
 <script type="text/javascript">

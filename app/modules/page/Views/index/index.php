@@ -25,7 +25,7 @@
 
                         <?php } ?>
                       
-                        <div class="content-titulo">
+                        <div class="content-titulo d-none">
                             <h2><?= $inmueble->titulo ?></h2>
                         </div>
                         <div class="content px-2">
@@ -34,7 +34,7 @@
                             </div>
                         </div>
 
-                        <a href="/page/inventario/inmueble?id=<?= $inmueble->id ?>" class="btn-naranja"> Ver inmueble</a>
+                        <a href="/page/inventario/inmueble?id=<?= $inmueble->id ?>" class="btn-gris px-2"> Ver inmueble</a>
 
 
                     </div>
@@ -69,7 +69,7 @@
             ?>
         </ul>
         <div class="d-flex justify-content-center justify-content-md-start">
-            <a href="/page/preguntasfrecuentes" class=" btn-home mt-3 mx-1">Ver todas las preguntas</a>
+            <a href="/page/preguntasfrecuentes" class=" btn-naranja mt-3 mx-1">Ver todas las preguntas</a>
         </div>
         </div>
     </div>

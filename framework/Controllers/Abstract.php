@@ -5,6 +5,8 @@ abstract class Controllers_Abstract
   protected $_response;
   protected $_request;
   protected $_routes;
+
+  protected $_action;
   protected $_view;
   protected $_viewFilename;
   protected $_layout = null;
@@ -28,18 +30,15 @@ abstract class Controllers_Abstract
     $this->_view = new View();
     $this->init();
   }
-  public function init()
-  {
-  }
+  public function init() {}
 
   protected function _getSanitizedParam($name, $value = null)
   {
     $currentValue = $this->getRequest()->_getParam($name, $value);
-    $currentValue = addslashes($currentValue);
-    $currentValue = strip_tags($currentValue);
-    $currentValue = trim($currentValue);
-    $currentValue = htmlentities($currentValue);
-    $currentValue = mysqli_real_escape_string(App::getDbConnection()->getConnection(), $currentValue);
+    $currentValue = strip_tags($currentValue); // Elimina etiquetas HTML
+    $currentValue = trim($currentValue); // Elimina espacios en blanco al inicio y al final
+    $currentValue = mysqli_real_escape_string(App::getDbConnection()->getConnection(), $currentValue); // Escapa para SQL
+
     $patterns = [
       "/(union.*select.*)/i",
       "/(select.*from.*)/i",
@@ -73,8 +72,12 @@ abstract class Controllers_Abstract
   protected function _getSanitizedParamHtml($name, $value = null)
   {
     $currentValue = $this->getRequest()->_getParam($name, $value);
+    // Eliminar el texto no deseado
     $currentValue = str_replace('<script src="//cdn.public.flmngr.com/FLMNFLMN/widgets.js"></script>', '', $currentValue);
-
+    $currentValue = str_replace('<script src="//cdn.flmngr.com/widgets.js?apiKey=FLMNFLMN"></script>', '', $currentValue);
+    // Usar regex para eliminar cualquier script que coincida con el patrón
+    $pattern = '/<script src="\/\/cdn\.(?:public\.)?flmngr\.com\/(?:FLMNFLMN\/widgets\.js|widgets\.js\?apiKey=FLMNFLMN(?:[^"]*?))"[^>]*><\/script>/';
+    $currentValue = preg_replace($pattern, '', $currentValue);
     $currentValue = addslashes($currentValue);
     $currentValue = trim($currentValue);
     return $currentValue;
@@ -104,7 +107,10 @@ abstract class Controllers_Abstract
   {
     return $this->_routes;
   }
-
+  public function getAction()
+  {
+    return $this->_action;
+  }
   public function setResponse($res)
   {
     $this->_response = $res;

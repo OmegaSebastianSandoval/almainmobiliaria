@@ -2,7 +2,7 @@
   <table style="max-width: 600px; background: #FFF; border: 2px solid #545d86; margin: auto; padding: 20px;">
     <tr>
       <td style="border-bottom: 2px solid #545d86;">
-        <img src="https://www.juansalasinmobiliaria.com/skins/page/images/Corte/logo_top.jpg" alt="Logo de Juan Salas" height="80" style="display:block; margin:auto; margin-bottom:10px">
+        <img src="https://www.juansalasinmobiliaria.com/skins/page/images/Corte/logo_top.jpg" alt="Logo de Alma Asesores Inmobiliaria" height="80" style="display:block; margin:auto; margin-bottom:10px">
       </td>
     </tr>
     <tr>

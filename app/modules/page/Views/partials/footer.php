@@ -4,7 +4,7 @@
 <div class="footer">
     <div class="container">
         <div class="row text-center text-md-start">
-            <div class="col-12 col-md-3 text-center">
+            <div class="col-12 col-md-3 text-center d-flex align-items-center justify-content-center">
                 <img src="/skins/page/images/Corte/LogoFooter.png" alt="Logo" class="img-fluid mb-3">
             </div>
             <div class="col-12  col-md-9 mt-4">
@@ -16,15 +16,15 @@
 
                 </ul>
                 <div class="row g-0 text-center">
-                    <div class="col-md-4 d-flex align-items-center justify-content-start  gap-2 p-0 m-0">
+                    <div class="col-md-4 d-flex align-items-center justify-content-md-start justify-content-center  gap-2 p-0 m-0">
                         <i class="fa-solid fa-mobile-screen"></i>
                         <span class=""> <?= $this->infopage->info_pagina_telefono ?></span>
                     </div>
-                    <div class="col-md-4 d-flex  align-items-center justify-content-start  gap-2 p-0 m-0">
+                    <div class="col-md-4 d-flex  align-items-center justify-content-md-start justify-content-center  gap-2 p-0 m-0">
                         <i class="fa-regular fa-envelope"></i>
                         <span class=""> <?= $this->infopage->info_pagina_correos_contacto ?></span>
                     </div>
-                    <div class="col-md-4 d-flex  align-items-center justify-content-start  gap-2 p-0 m-0">
+                    <div class="col-md-4 d-flex  align-items-center justify-content-md-start justify-content-center  gap-2 p-0 m-0">
                         <i class="fa-solid fa-location-dot"></i>
                         <span class=""> <?= $this->infopage->info_pagina_direccion_contacto ?></span>
                     </div>

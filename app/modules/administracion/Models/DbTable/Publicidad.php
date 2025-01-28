@@ -1,7 +1,8 @@
-<?php 
+<?php
+
 /**
-* clase que genera la insercion y edicion  de Administrar Banners en la base de datos
-*/
+ * clase que genera la insercion y edicion  de Administrar Banners en la base de datos
+ */
 class Administracion_Model_DbTable_Publicidad extends Db_Table
 {
 	/**
@@ -21,7 +22,8 @@ class Administracion_Model_DbTable_Publicidad extends Db_Table
 	 * @param  array Array array con la informacion con la cual se va a realizar la insercion en la base de datos
 	 * @return integer      identificador del  registro que se inserto
 	 */
-	public function insert($data){
+	public function insert($data)
+	{
 		$publicidad_seccion = $data['publicidad_seccion'];
 		$publicidad_nombre = $data['publicidad_nombre'];
 		$publicidad_fecha = $data['publicidad_fecha'];
@@ -36,9 +38,11 @@ class Administracion_Model_DbTable_Publicidad extends Db_Table
 		$publicidad_enlace = $data['publicidad_enlace'];
 		$publicidad_tipo_enlace = $data['publicidad_tipo_enlace'];
 		$publicidad_texto_enlace = $data['publicidad_texto_enlace'];
-		$query = "INSERT INTO publicidad( publicidad_seccion, publicidad_nombre, publicidad_fecha, publicidad_imagen, publicidad_imagenresponsive, publicidad_video, publicidad_color_fondo, publicidad_posicion, publicidad_descripcion, publicidad_estado, publicidad_click, publicidad_enlace, publicidad_tipo_enlace, publicidad_texto_enlace) VALUES ( '$publicidad_seccion', '$publicidad_nombre', '$publicidad_fecha', '$publicidad_imagen', '$publicidad_imagenresponsive', '$publicidad_video', '$publicidad_color_fondo', '$publicidad_posicion', '$publicidad_descripcion', '$publicidad_estado', '$publicidad_click', '$publicidad_enlace', '$publicidad_tipo_enlace', '$publicidad_texto_enlace')";
+		$mostrarinfo = $data['mostrarinfo'];
+
+		$query = "INSERT INTO publicidad( publicidad_seccion, publicidad_nombre, publicidad_fecha, publicidad_imagen, publicidad_imagenresponsive, publicidad_video, publicidad_color_fondo, publicidad_posicion, publicidad_descripcion, publicidad_estado, publicidad_click, publicidad_enlace, publicidad_tipo_enlace, publicidad_texto_enlace, mostrarinfo) VALUES ( '$publicidad_seccion', '$publicidad_nombre', '$publicidad_fecha', '$publicidad_imagen', '$publicidad_imagenresponsive', '$publicidad_video', '$publicidad_color_fondo', '$publicidad_posicion', '$publicidad_descripcion', '$publicidad_estado', '$publicidad_click', '$publicidad_enlace', '$publicidad_tipo_enlace', '$publicidad_texto_enlace','$mostrarinfo')";
 		$res = $this->_conn->query($query);
-        return mysqli_insert_id($this->_conn->getConnection());
+		return mysqli_insert_id($this->_conn->getConnection());
 	}
 
 	/**
@@ -47,8 +51,9 @@ class Administracion_Model_DbTable_Publicidad extends Db_Table
 	 * @param  integer    identificador al cual se le va a realizar la actualizacion
 	 * @return void
 	 */
-	public function update($data,$id){
-		
+	public function update($data, $id)
+	{
+
 		$publicidad_seccion = $data['publicidad_seccion'];
 		$publicidad_nombre = $data['publicidad_nombre'];
 		$publicidad_fecha = $data['publicidad_fecha'];
@@ -62,8 +67,10 @@ class Administracion_Model_DbTable_Publicidad extends Db_Table
 		$publicidad_click = $data['publicidad_click'];
 		$publicidad_enlace = $data['publicidad_enlace'];
 		$publicidad_tipo_enlace = $data['publicidad_tipo_enlace'];
+		$mostrarinfo = $data['mostrarinfo'];
+
 		$publicidad_texto_enlace = $data['publicidad_texto_enlace'];
-		echo $query = "UPDATE publicidad SET  publicidad_seccion = '$publicidad_seccion', publicidad_nombre = '$publicidad_nombre', publicidad_fecha = '$publicidad_fecha', publicidad_imagen = '$publicidad_imagen', publicidad_imagenresponsive = '$publicidad_imagenresponsive', publicidad_video = '$publicidad_video', publicidad_color_fondo = '$publicidad_color_fondo', publicidad_posicion = '$publicidad_posicion', publicidad_descripcion = '$publicidad_descripcion', publicidad_estado = '$publicidad_estado', publicidad_click = '$publicidad_click', publicidad_enlace = '$publicidad_enlace', publicidad_tipo_enlace = '$publicidad_tipo_enlace', publicidad_texto_enlace = '$publicidad_texto_enlace' WHERE publicidad_id = '".$id."'";
+		$query = "UPDATE publicidad SET  publicidad_seccion = '$publicidad_seccion', publicidad_nombre = '$publicidad_nombre', publicidad_fecha = '$publicidad_fecha', publicidad_imagen = '$publicidad_imagen', publicidad_imagenresponsive = '$publicidad_imagenresponsive', publicidad_video = '$publicidad_video', publicidad_color_fondo = '$publicidad_color_fondo', publicidad_posicion = '$publicidad_posicion', publicidad_descripcion = '$publicidad_descripcion', publicidad_estado = '$publicidad_estado', publicidad_click = '$publicidad_click', publicidad_enlace = '$publicidad_enlace', publicidad_tipo_enlace = '$publicidad_tipo_enlace', publicidad_texto_enlace = '$publicidad_texto_enlace', mostrarinfo = '$mostrarinfo' WHERE publicidad_id = '" . $id . "'";
 		$res = $this->_conn->query($query);
 	}
 }

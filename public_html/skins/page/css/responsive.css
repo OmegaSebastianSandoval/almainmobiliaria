@@ -15,11 +15,14 @@
     height: 112px;
   }
 
-
-
-
+  
   header .header-content::before {
     all: unset;
+  }
+
+  .list-footer {
+
+    text-align: center;
   }
 
   .fondo-imagen {
@@ -92,7 +95,7 @@
   }
 
   .preguntas {
-    text-align: center;
+    text-align: start;
   }
 
   .preguntas li {
@@ -162,17 +165,25 @@
 
   header,
   header .header-content {
-    height: 0;
+    height: 7rem;
   }
 
   .logo {
-    height: 75px;
+    height: 60px;
+    padding: 5px 0 !important;
+    width: 100%;
   }
+
+  .social-section {
+    justify-content: center;
+  
+}
+
 
   .main-general {
-    margin-top: 85px;
+    /* margin-top: 85px; */
   }
-
+ 
   .content-mapa ul {
     display: grid !important;
     margin-bottom: 20px !important;
@@ -320,9 +331,11 @@ HOME INICIO
 
   .id_31 .descripcion {
 
-    font-size: 23px;
+    font-size: 19px;
   }
-
+  .id_33 .titulo_33{
+    font-size: 25px;
+  }
   .id_31 .btn-vermas {
     font-size: 15px
   }
@@ -348,7 +361,7 @@ HOME FIN
   }
 
   .id_26 .col-sm-3 {
-    width: 50%;
+    /* width: 50%; */
   }
 
   .contenido-home .id_26 .design-four h2,
@@ -362,8 +375,8 @@ HOME FIN
   }
 
   .contenido-home .id_26 .design-four .imagen-contenido img {
-    height: 75px;
-    width: 75px;
+    /*     height: 75px;
+    width: 75px; */
   }
 
   .header-title span {
@@ -375,17 +388,20 @@ HOME FIN
     line-height: normal;
   }
 
-  .header-price .current-price{
+  .header-price .current-price {
     line-height: normal;
     font-size: 26px;
   }
-  .title-section{
+
+  .title-section {
     margin-bottom: 24px;
   }
-  #btn-inmueble-volver{
+
+  #btn-inmueble-volver {
     display: none !important;
   }
-  #btn-inmueble{
+
+  #btn-inmueble {
     display: flex !important;
   }
 }
