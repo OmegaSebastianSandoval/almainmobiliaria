@@ -1,8 +1,8 @@
 <div style=" background: #6e6e6e20; padding: 50px; font-size: 15px;">
-  <table style="max-width: 600px; background: #FFF; border: 2px solid #545d86; margin: auto; padding: 20px;">
+  <table style="max-width: 600px; background: #FFF; border: 2px solid #6f96d1; margin: auto; padding: 20px;">
     <tr>
-      <td style="border-bottom: 2px solid #545d86;">
-        <img src="https://www.juansalasinmobiliaria.com/skins/page/images/Corte/logo_top.jpg" alt="Logo de Alma Asesores Inmobiliaria" height="50" style="display:block; margin:auto; margin-bottom:10px">
+      <td style="border-bottom: 2px solid #6f96d1;">
+        <img src="https://omegasolucionesweb.com/images/LogoHeader.png" alt="Logo de Alma Asesores Inmobiliaria" height="50" style="display:block; margin:auto; margin-bottom:10px">
       </td>
     </tr>
     <tr>

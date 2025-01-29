@@ -68,7 +68,7 @@ class Core_Model_Sendingemail
 
 
     $this->email->getMail()->addAddress($informacion->info_pagina_correo_oculto);
-    //$this->email->getMail()->addBCC("desarrollo8@omegawebsystems.com");
+    $this->email->getMail()->addBCC("desarrollo8@omegawebsystems.com");
     //$this->email->getMail()->addBCC("gadjcs@gmail.com");
     $content = $this->_view->getRoutPHP('/../app/modules/core/Views/templatesemail/mailInventario.php');
     $this->email->getMail()->Subject = 'Formulario de contacto Alma Asesores Inmobiliaria';
@@ -91,7 +91,7 @@ class Core_Model_Sendingemail
 
     //$this->email->getMail()->addBCC("gadjcs@gmail.com");
     $this->email->getMail()->addAddress($informacion->info_pagina_correo_oculto);
-   // $this->email->getMail()->addBCC("desarrollo8@omegawebsystems.com");
+   $this->email->getMail()->addBCC("desarrollo8@omegawebsystems.com");
     $content = $this->_view->getRoutPHP('/../app/modules/core/Views/templatesemail/mailInventario.php');
     $this->email->getMail()->Subject = 'Contacto Inmueble Alma Asesores Inmobiliaria';
     $this->email->getMail()->msgHTML($content);

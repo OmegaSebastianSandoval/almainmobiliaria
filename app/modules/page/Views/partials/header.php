@@ -20,12 +20,12 @@
 <section class="bg-white header-bottom align-self-center">
     <div class="container h-100">
         <div class="row justify-content-between h-100">
-            <div class="col-6 col-md-2 d-flex align-items-center ">
+            <div class="col-6 col-lg-2 d-flex align-items-center ">
                 <a href="/">
                     <img src="/skins/page/images/Corte/LogoHeader.png" class="logo">
                 </a>
             </div>
-            <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center">
+            <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-end">
                 <div class="row h-100">
                     <div class="col-lg-12 col-md-12 d-none d-lg-block">
 
@@ -57,7 +57,7 @@
                 </div>
             </div>
 
-            <div class=" d-none col-md-4 d-md-flex align-items-center  gap-3 h-100 justify-content-end">
+            <div class=" d-none col-lg-4 d-lg-flex align-items-center  gap-3 h-100 justify-content-end">
                 <div class="d-flex align-items-center justify-content-end gap-3 h-100">
 
                     <div class="search">
@@ -119,7 +119,7 @@
                     </a>
                 <?php } ?>
             </div>
-            <div class="d-block d-md-none col-6 d-flex align-items-center justify-content-end">
+            <div class="d-block d-lg-none col-6 d-flex align-items-center justify-content-end">
 
                 <!--<div class="col-4 d-block d-lg-none d-none justify-content-end align-items-center">-->
                 <div class=" main">
@@ -150,13 +150,13 @@
             </tr>
             <tr>
                 <td>
-                    <li class="item"><a href="/page/inventario"><i class="fa-solid fa-building  "></i><span>INVENTARIO DE INMUEBLES</span></a>
+                    <li class="item"><a href="/page/inventario"><i class="fa-solid fa-building  "></i><span>INMUEBLES</span></a>
                     </li>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <li class="item"><a href="/page/conozcanos"><i class="fa-solid fa-people-roof "></i><span>CON&Oacute;ZCANOS</span></a>
+                    <li class="item"><a href="/page/conozcanos"><i class="fa-solid fa-people-roof "></i><span>QUI&Eacute;NES SOMOS</span></a>
                     </li>
                 </td>
             </tr>
@@ -166,12 +166,12 @@
                     </li>
                 </td>
             </tr>
-            <tr>
+           <!--  <tr>
                 <td>
                     <li class="item"><a href="/page/procesos"><i class="fa-solid fa-chalkboard-user "></i><span>PROCESOS</span></a>
                     </li>
                 </td>
-            </tr>
+            </tr> 
             <tr>
                 <td>
                     <li class="item"><a href="/page/contacto"><i class="fa-solid fa-address-book "></i><span>CONTACTO</span></a>
@@ -183,7 +183,7 @@
                     <li class="item"><a href="/page/archivos"><i class="fa-solid fa-file  "></i><span>ARCHIVOS DESCARGABLES</span></a>
                     </li>
                 </td>
-            </tr>
+            </tr>-->
             <?php if (is_countable($this->links) && count($this->links) >= 1) { ?>
 
                 <tr>

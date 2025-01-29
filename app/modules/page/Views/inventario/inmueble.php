@@ -192,7 +192,7 @@
                             <div class="col-6">
                                 <div class="d-flex gap-4 align-items-center cont-info">
                                     <div>
-                                    <i class="fa-solid fa-money-bill-transfer"></i>
+                                        <i class="fa-solid fa-money-bill-transfer"></i>
                                     </div>
                                     <div>
                                         <span class="d-block titulo-detalle">
@@ -337,7 +337,7 @@
 
 
                         </div>
-                        <?php if ($this->inmueble->Alcobas) { ?>
+                        <?php if ($this->inmueble->Alcobas && $this->inmueble->Alcobas >= 1) { ?>
                             <div class="col-6">
                                 <div class="d-flex gap-4 align-items-center cont-info">
                                     <div>
@@ -358,7 +358,7 @@
                             </div>
                         <?php } ?>
 
-                        <?php if ($this->inmueble->banos) { ?>
+                        <?php if ($this->inmueble->banos && $this->inmueble->banos >= 1) { ?>
 
                             <div class="col-6">
                                 <div class="d-flex gap-4 align-items-center cont-info">
@@ -380,7 +380,7 @@
                             </div>
                         <?php } ?>
 
-                        <?php if ($this->inmueble->parqueaderos) { ?>
+                        <?php if ($this->inmueble->parqueaderos && $this->inmueble->parqueaderos >= 1) { ?>
 
                             <div class="col-6">
                                 <div class="d-flex gap-4 align-items-center cont-info">

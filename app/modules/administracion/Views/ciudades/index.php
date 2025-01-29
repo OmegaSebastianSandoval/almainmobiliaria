@@ -39,21 +39,29 @@
     </form>
     <div align="center">
 		<ul class="pagination justify-content-center">
-	    <?php
-	    	$url = $this->route;
-	        if ($this->totalpages > 1) {
-	            if ($this->page != 1)
-	                echo '<li class="page-item" ><a class="page-link"  href="'.$url.'?page='.($this->page-1).'"> &laquo; Anterior </a></li>';
-	            for ($i=1;$i<=$this->totalpages;$i++) {
-	                if ($this->page == $i)
-	                    echo '<li class="active page-item"><a class="page-link">'.$this->page.'</a></li>';
-	                else
-	                    echo '<li class="page-item"><a class="page-link" href="'.$url.'?page='.$i.'">'.$i.'</a></li>  ';
-	            }
-	            if ($this->page != $this->totalpages)
-	                echo '<li class="page-item"><a class="page-link" href="'.$url.'?page='.($this->page+1).'">Siguiente &raquo;</a></li>';
-	        }
-	  	?>
+		<?php
+			$url = $this->route;
+			$min = $this->page - 10;
+			if ($min < 0) {
+				$min = 1;
+			}
+			$max = $this->page + 10;
+			if ($this->totalpages > 1) {
+				if ($this->page != 1)
+					echo '<li class="page-item" ><a class="page-link"  href="' . $url . '?page=' . ($this->page - 1) . '"> &laquo; Anterior </a></li>';
+				for ($i = 1; $i <= $this->totalpages; $i++) {
+					if ($this->page == $i)
+						echo '<li class="active page-item"><a class="page-link">' . $this->page . '</a></li>';
+					else {
+						if ($i <= $max and $i >= $min) {
+							echo '<li class="page-item"><a class="page-link" href="' . $url . '?page=' . $i . '">' . $i . '</a></li>  ';
+						}
+					}
+				}
+				if ($this->page != $this->totalpages)
+					echo '<li class="page-item"><a class="page-link" href="' . $url . '?page=' . ($this->page + 1) . '">Siguiente &raquo;</a></li>';
+			}
+			?>
 	  	</ul>
 	</div>
 	<div class="content-dashboard">
@@ -127,21 +135,29 @@
 	</div>
 	 <div align="center">
 		<ul class="pagination justify-content-center">
-	    <?php
-	    	$url = $this->route;
-	        if ($this->totalpages > 1) {
-	            if ($this->page != 1)
-	                echo '<li class="page-item"><a class="page-link" href="'.$url.'?page='.($this->page-1).'"> &laquo; Anterior </a></li>';
-	            for ($i=1;$i<=$this->totalpages;$i++) {
-	                if ($this->page == $i)
-	                    echo '<li class="active page-item"><a class="page-link">'.$this->page.'</a></li>';
-	                else
-	                    echo '<li class="page-item"><a class="page-link" href="'.$url.'?page='.$i.'">'.$i.'</a></li>  ';
-	            }
-	            if ($this->page != $this->totalpages)
-	                echo '<li class="page-item"><a class="page-link" href="'.$url.'?page='.($this->page+1).'">Siguiente &raquo;</a></li>';
-	        }
-	  	?>
+		<?php
+			$url = $this->route;
+			$min = $this->page - 10;
+			if ($min < 0) {
+				$min = 1;
+			}
+			$max = $this->page + 10;
+			if ($this->totalpages > 1) {
+				if ($this->page != 1)
+					echo '<li class="page-item" ><a class="page-link"  href="' . $url . '?page=' . ($this->page - 1) . '"> &laquo; Anterior </a></li>';
+				for ($i = 1; $i <= $this->totalpages; $i++) {
+					if ($this->page == $i)
+						echo '<li class="active page-item"><a class="page-link">' . $this->page . '</a></li>';
+					else {
+						if ($i <= $max and $i >= $min) {
+							echo '<li class="page-item"><a class="page-link" href="' . $url . '?page=' . $i . '">' . $i . '</a></li>  ';
+						}
+					}
+				}
+				if ($this->page != $this->totalpages)
+					echo '<li class="page-item"><a class="page-link" href="' . $url . '?page=' . ($this->page + 1) . '">Siguiente &raquo;</a></li>';
+			}
+			?>
 	  	</ul>
 	</div>
 </div>
