@@ -441,6 +441,8 @@ class Administracion_contenidoController extends Administracion_mainController
     $array['7'] = 'Mapa del sitio';
     $array['8'] = 'Preguntas Frecuentes';
     $array['9'] = 'Contáctenos';
+    $array['10'] = 'Pagos';
+    $array['11'] = 'Remodelaciones';
 
 
 

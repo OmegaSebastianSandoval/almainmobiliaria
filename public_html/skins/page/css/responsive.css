@@ -15,7 +15,7 @@
     height: 112px;
   }
 
-  
+
   header .header-content::before {
     all: unset;
   }
@@ -176,14 +176,14 @@
 
   .social-section {
     justify-content: center;
-  
-}
+
+  }
 
 
   .main-general {
     /* margin-top: 85px; */
   }
- 
+
   .content-mapa ul {
     display: grid !important;
     margin-bottom: 20px !important;
@@ -239,7 +239,7 @@
     margin: 0 auto;
   }
 
-  .list-footer{
+  .list-footer {
     text-align: center;
   }
 
@@ -285,6 +285,27 @@
   .carousel-control-prev {
     width: 12%;
   }
+
+
+  .floating-btn {
+    gap: 5px;
+    align-items: center;
+    padding: 0;
+    width: 70px;
+  }
+
+  .floating-btn a {
+    display: grid !important;
+    width: auto !important;
+    line-height: 1;
+    padding: 5px;
+  }
+
+
+  .floating-btn a span {
+    font-size: 12px;
+  }
+
 
 
 
@@ -336,9 +357,11 @@ HOME INICIO
 
     font-size: 19px;
   }
-  .id_33 .titulo_33{
+
+  .id_33 .titulo_33 {
     font-size: 25px;
   }
+
   .id_31 .btn-vermas {
     font-size: 15px
   }
@@ -407,6 +430,20 @@ HOME FIN
   #btn-inmueble {
     display: flex !important;
   }
+
+  /* *********************************
+PAGOS INICIO  
+*******************************/
+.contenedor-pagos .design-one img {
+  margin-bottom: 15px;
+}
+.contenedor-pagos .design-one .btn-naranja {
+  display: block;
+  margin-inline: auto;
+}
+  /* *********************************
+PAGOS fin  
+*******************************/
 }
 
 

@@ -325,6 +325,8 @@ class Administracion_publicidadController extends Administracion_mainController
     $array['8'] = 'Preguntas Frecuentes';
     $array['9'] = 'Contáctenos';
     $array['10'] = 'Imagen Contáctenos';
+    $array['11'] = 'Pagos';
+    $array['12'] = 'Remodelaciones';
 
 
 

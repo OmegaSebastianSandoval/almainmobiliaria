@@ -35,22 +35,9 @@
                                 <li class="<?php echo $this->botonactivo == 2 ? 'active' : '' ?>"><a href="/page/inventario"><span>INMUEBLES</span></a></li>
                                 <li class="<?php echo $this->botonactivo == 3 ? 'active' : '' ?>"><a href="/page/conozcanos"><span>QUI&Eacute;NES SOMOS</span></a></li>
                                 <li class="<?php echo $this->botonactivo == 4 ? 'active' : '' ?>"><a href="/page/servicios"><span>SERVICIOS</span></a></li>
-                                <!--  <li class="<?php echo $this->botonactivo == 5 ? 'active' : '' ?>"><a href="/page/procesos"><span>PROCESOS</span></a></li> -->
+                                 <li class="<?php echo $this->botonactivo == 5 ? 'active' : '' ?>"><a href="/page/pagos"><span>PAGOS</span></a></li>
 
-                                <?php if (is_countable($this->links) && count($this->links) >= 1) { ?>
-                                    <li><a href="#"><span>PAGOS</span></a>
-                                        <ul>
-                                            <?php foreach ($this->links as $link) { ?>
-                                                <li><a href="<?= $link->publicidad_enlace ?>" <?= $link->publicidad_tipo_enlace === '1' ? 'target="_blank"' : '' ?>><?= $link->publicidad_texto_enlace ?></a></li>
-                                            <?php } ?>
-                                            <!-- <li><a href="/page/arrendatario"><i class="icon-menu fas fa-caret-right"></i>ARRENDATARIO</a></li>
-                                    <li><a href="/page/propietario"><i class="icon-menu fas fa-caret-right"></i>PROPIETARIO</a></li> -->
-                                        </ul>
-                                    </li>
-                                <?php } ?>
-
-
-
+                            
                             </ul>
                         </nav>
                     </div>
@@ -166,13 +153,13 @@
                     </li>
                 </td>
             </tr>
-           <!--  <tr>
+           <tr>
                 <td>
-                    <li class="item"><a href="/page/procesos"><i class="fa-solid fa-chalkboard-user "></i><span>PROCESOS</span></a>
+                    <li class="item"><a href="/page/pagos"><i class="fa-solid fa-chalkboard-user "></i><span>PAGOS</span></a>
                     </li>
                 </td>
             </tr> 
-            <tr>
+            <!--  <tr>
                 <td>
                     <li class="item"><a href="/page/contacto"><i class="fa-solid fa-address-book "></i><span>CONTACTO</span></a>
                     </li>
